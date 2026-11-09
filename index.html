@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#101d22" />
+  <meta name="description" content="Explore Emberfall, survive the wilds, and befriend your own dragon." />
+  <title>Emberfall — Wilds of the Last Dragon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <main id="game">
+    <canvas id="world" aria-label="Emberfall 3D game world"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Emberfall home"><span class="brand-mark">✦</span><span>EMBERFALL<small>THE WILD REMAINS</small></span></a>
+      <div class="chapter"><span class="chapter-dot"></span> THE ASHEN WILDS <span class="chapter-line"></span> <span id="clock">DAY 01 · 08:42</span></div>
+      <button class="icon-btn" id="soundBtn" aria-label="Toggle sound">♫</button>
+    </header>
+    <section class="hud-left" aria-label="Player status">
+      <div class="player-card"><div class="avatar">✦</div><div><span class="eyebrow">WANDERER</span><strong>Kael of the Vale</strong></div><div class="level">LVL <b>01</b></div></div>
+      <div class="stat-row"><span class="stat-icon heart">♥</span><div class="meter"><div class="meter-fill health-fill" id="healthFill"></div></div><span class="stat-value" id="healthValue">100</span></div>
+      <div class="stat-row"><span class="stat-icon stamina">ϟ</span><div class="meter"><div class="meter-fill stamina-fill" id="staminaFill"></div></div><span class="stat-value" id="staminaValue">100</span></div>
+      <div class="inventory"><div class="inventory-title">PACK <span>—</span></div><div class="inventory-items"><div class="inv-item"><span class="inv-symbol berry">✿</span><span>Moonberry</span><b id="berryCount">0</b></div><div class="inv-item"><span class="inv-symbol wood">♨</span><span>Timber</span><b id="woodCount">0</b></div><div class="inv-item"><span class="inv-symbol stone">◇</span><span>Shardstone</span><b id="stoneCount">0</b></div></div></div>
+    </section>
+    <section class="quest-card" id="questCard"><div class="quest-top"><span class="quest-icon">✧</span><span class="eyebrow">ACTIVE QUEST <i>MAIN</i></span><button id="questToggle" aria-label="Collapse quest">⌃</button></div><h2 id="questTitle">A bond beyond fear</h2><p id="questText">Find 3 moonberries and offer them to the dragon.</p><div class="quest-progress"><span id="questProgress">0 / 3</span><div class="quest-track"><span id="questBar"></span></div></div><div class="quest-reward">✦ &nbsp;TAME THE WILD SKY</div></section>
+    <div class="compass"><span class="compass-n">N</span><div class="compass-dial"><span class="tick t1"></span><span class="tick t2"></span><span class="tick t3"></span><span class="compass-arrow">▲</span></div><span id="direction">EMBERFALL · 240M</span></div>
+    <div class="toast" id="toast"><span>✦</span><span id="toastText">The wilds are waiting.</span></div>
+    <div class="interaction" id="interaction"><span class="keycap">E</span><span id="interactionText">Gather moonberry</span></div>
+    <div class="ride-prompt" id="ridePrompt">✦ <span>Dragon bonded</span> <kbd>R</kbd> Mount</div>
+    <div class="controls-hint"><span>WASD</span> Move <i>·</i> <span>SPACE</span> Dodge <i>·</i> <span>F</span> Gather / Tame</div>
+    <div class="mobile-controls" id="mobileControls"><div class="joystick" id="joystick"><div class="joy-ring"></div><div class="joy-knob" id="joyKnob"></div></div><div class="action-buttons"><button class="action-btn gather-btn" id="gatherBtn"><span>✧</span><small>GATHER</small></button><button class="action-btn attack-btn" id="attackBtn"><span>⚔</span><small>STRIKE</small></button></div></div>
+    <div class="mount-controls" id="mountControls"><div class="mount-hint">DRAGON FLIGHT <span>Hold to rise</span></div><button id="dismountBtn" class="dismount-btn">↓<small>DISEMBARK</small></button><button id="flyBtn" class="fly-btn">↑<small>ASCEND</small></button></div>
+    <div class="start-screen" id="startScreen"><div class="start-bg"></div><div class="start-content"><div class="intro-overline"><span></span> A SURVIVAL ADVENTURE <span></span></div><h1>THE WILDS<br>OF THE <em>LAST</em><br>DRAGON</h1><p class="intro-copy">The old world has fallen quiet. The last dragon still remembers the sky.</p><button class="play-btn" id="playBtn"><span>ENTER THE WILDS</span><b>→</b></button><div class="start-meta"><span>✦ &nbsp;A LIVING WORLD</span><span>⌁ &nbsp;YOUR STORY BEGINS</span></div></div><div class="start-art"><span class="sun-orbit"></span><span class="dragon-silhouette">♢</span><span class="art-label">EMBERFALL <b>01 / 04</b></span></div><div class="start-bottom">BEST EXPERIENCED WITH SOUND &nbsp;·&nbsp; AUTOSAVES LOCALLY</div></div>
+    <div class="victory-screen hidden" id="victoryScreen"><div class="victory-card"><span class="victory-star">✧</span><div class="eyebrow">A BOND FORGED IN FIRE</div><h2>The sky is yours.</h2><p>You found your dragon, survived the wilds, and reached the Starfall Shrine.</p><button class="play-btn" id="continueBtn"><span>KEEP EXPLORING</span><b>→</b></button></div></div>
+    <div class="mobile-brand">✦ EMBERFALL</div>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
